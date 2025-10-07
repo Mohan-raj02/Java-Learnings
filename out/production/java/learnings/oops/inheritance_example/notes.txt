@@ -1,0 +1,57 @@
+ -- In Java, Object is the root (topmost) class of the class hierarchy.
+ -- Every class you create in Java implicitly extends Object (if no other parent is specified).
+ -- This means all classes in Java are subclasses of Object, either directly or indirectly.
+---------------------------------------------------------------------------------------------------------
+Reference Type
+
+You can use Object as a reference type to store any object:
+
+Object obj1 = "Hello";    // String
+Object obj2 = 42;         // Integer (auto-boxing)
+Object obj3 = new Person();
+
+
+Since everything extends Object, you can assign any object to it.
+
+
+-------------------------------------------------------------------------------------------------------------
+
+ -- Common Methods (inherited by every class from Object)
+
+toString() → returns a string representation.
+
+equals(Object obj) → checks equality.
+
+hashCode() → returns hash code (used in collections).
+
+getClass() → returns runtime class info.
+
+clone() → creates a copy (if supported).
+
+finalize() → called by GC before destroying the object (deprecated now).
+
+
+----------------------------------------------------------------------------------------------------------
+/*
+ * OBJECT TYPE IN JAVA - Theoretical Notes
+ *
+ * Definition: Object type refers to the runtime class of an instance in Java.
+ * Every object in Java has a type that determines what methods and fields it can access.
+ *
+ * Key Concepts:
+ * - All objects inherit from java.lang.Object class (root of class hierarchy)
+ * - Object type is determined at runtime, not compile time
+ * - Can be checked using getClass() method or instanceof operator
+ *
+ * Steps to work with Object Types:
+ * 1. Create an object instance using 'new' keyword
+ * 2. Use getClass() method to get runtime type information
+ * 3. Use instanceof to check if object is of specific type
+ * 4. Cast objects to appropriate types when necessary
+ *
+ * Important Object Methods:
+ * - toString(): Returns string representation of object
+ * - equals(): Compares objects for equality
+ * - hashCode(): Returns hash code value for object
+ * - getClass(): Returns runtime class of object
+ */

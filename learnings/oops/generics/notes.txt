@@ -1,0 +1,318 @@
+// ============================================================================
+// JAVA GENERICS - THEORETICAL CONCEPTS
+// ============================================================================
+
+// DEFINITION:
+// - Generics are parameterized types that allow writing code with type parameters
+// - Enable creation of classes, interfaces, and methods that work with different data types
+// - Use angle brackets <> with type parameters (like <T>, <E>, <K>, <V>)
+// - Provide compile-time type safety and eliminate need for explicit casting
+
+// WHY USE GENERICS:
+// - Type Safety: Catch type errors at compile-time instead of runtime
+// - Code Reusability: Write one class/method that works with multiple types
+// - Elimination of Casting: No need to cast objects when retrieving from collections
+// - Cleaner Code: More readable and maintainable code structure
+// - Performance: No boxing/unboxing overhead for primitive wrapper types
+
+// KEY PRINCIPLES:
+// - Type Erasure: Generic type information is removed at runtime
+// - Compile-time Checking: All type validation happens during compilation
+// - Backwards Compatibility: Works with non-generic legacy code
+// - Cannot instantiate generic types directly (no new T())
+
+// ============================================================================
+// GENERIC ARRAYLIST - THEORETICAL CONCEPTS
+// ============================================================================
+
+// DEFINITION:
+// - ArrayList<T> is a generic implementation of resizable array
+// - T represents the type parameter specifying what type of elements to store
+// - Combines benefits of generics with dynamic array functionality
+// - Part of Java Collections Framework in java.util package
+
+// KEY FEATURES OF GENERIC ARRAYLIST:
+// - Dynamic Resizing: Automatically grows/shrinks as elements added/removed
+// - Type Safety: Can only store elements of specified generic type
+// - Indexed Access: Elements accessible using array-like indices
+// - Ordered Collection: Maintains insertion order of elements
+// - Allows Duplicates: Can store multiple instances of same value
+// - Null Values Allowed: Can store null references if needed
+
+// BENEFITS OVER RAW ARRAYLIST:
+// - Compile-time Type Checking: Prevents ClassCastException at runtime
+// - No Casting Required: Direct access to properly typed elements
+// - Better IDE Support: Code completion and error detection
+// - Documentation: Type information serves as documentation
+
+// ============================================================================
+// STEPS TO IMPLEMENT GENERIC ARRAYLIST
+// ============================================================================
+
+// STEP 1: IMPORT REQUIRED PACKAGE
+// - Import java.util.ArrayList class
+// - Import java.util.List interface if using List reference
+
+// STEP 2: DECLARE GENERIC ARRAYLIST
+// - Syntax: ArrayList<DataType> variableName = new ArrayList<DataType>();
+// - Diamond operator: ArrayList<DataType> variableName = new ArrayList<>();
+// - Interface reference: List<DataType> variableName = new ArrayList<>();
+
+// STEP 3: CHOOSE APPROPRIATE DATA TYPE
+// - Use wrapper classes for primitives (Integer, Double, Boolean)
+// - Use object types for complex data (String, custom classes)
+// - Consider bounded type parameters if needed (<? extends Type>)
+
+// STEP 4: INITIALIZE WITH CONSTRUCTORS
+// - Default constructor: Creates empty list with initial capacity 10
+// - Capacity constructor: ArrayList<Type>(int initialCapacity)
+// - Collection constructor: ArrayList<Type>(Collection<? extends Type> c)
+
+// STEP 5: PERFORM OPERATIONS
+// - Add elements: add(element), add(index, element)
+// - Remove elements: remove(index), remove(object)
+// - Access elements: get(index), set(index, element)
+// - Check properties: size(), isEmpty(), contains(object)
+
+// ============================================================================
+// TYPE PARAMETER CONVENTIONS
+// ============================================================================
+
+// COMMON TYPE PARAMETER NAMES:
+// - T: Type (most common generic type parameter)
+// - E: Element (used in collections)
+// - K: Key (used in maps)
+// - V: Value (used in maps)
+// - N: Number (for numeric types)
+
+// BOUNDED TYPE PARAMETERS:
+// - Upper bound: <T extends SuperClass> - T must be subtype of SuperClass
+// - Lower bound: <T super SubClass> - T must be supertype of SubClass
+// - Multiple bounds: <T extends Class1 & Interface1 & Interface2>
+
+// ============================================================================
+// STEPS TO USE GENERIC METHODS WITH ARRAYLIST
+// ============================================================================
+
+// STEP 1: DEFINE GENERIC METHOD SIGNATURE
+// - Place type parameter before return type: <T> returnType methodName()
+// - Use type parameter in method parameters and return type
+
+// STEP 2: IMPLEMENT TYPE-SAFE OPERATIONS
+// - Use generic ArrayList as parameter or return type
+// - Ensure all operations maintain type safety
+// - Handle generic exceptions appropriately
+
+// STEP 3: CALL GENERIC METHODS
+// - Type inference: Compiler automatically determines types
+// - Explicit type specification: methodName<Type>(parameters)
+// - Ensure calling code provides compatible types
+
+// ============================================================================
+// MEMORY AND PERFORMANCE CONSIDERATIONS
+// ============================================================================
+
+// MEMORY MANAGEMENT:
+// - Initial capacity defaults to 10 elements
+// - Grows by 50% when capacity exceeded (old capacity + old capacity/2)
+// - trimToSize() method reduces capacity to current size
+// - ensureCapacity() method pre-allocates space for known size
+
+// PERFORMANCE CHARACTERISTICS:
+// - Access by index: O(1) constant time
+// - Insertion at end: O(1) amortized time
+// - Insertion at middle: O(n) linear time due to element shifting
+// - Deletion: O(n) linear time due to element shifting
+// - Search by value: O(n) linear time
+
+// THREAD SAFETY:
+// - ArrayList is NOT thread-safe by default
+// - Use Collections.synchronizedList() for thread-safe wrapper
+// - Consider CopyOnWriteArrayList for concurrent read-heavy scenarios
+// - Use Vector class for legacy thread-safe alternative
+
+
+
+---------------------------------------------------------------------------------------------------------------
+
+
+
+// ============================================================================
+// JAVA WILDCARDS - THEORETICAL CONCEPTS
+// ============================================================================
+
+// DEFINITION:
+// - Wildcards are represented by question mark (?) symbol in Java generics
+// - Represent unknown or unspecified types in generic programming
+// - Used to increase flexibility and code reusability in generic methods/classes
+// - Allow working with collections of different but related types safely
+// - Provide type-safe way to handle inheritance relationships in generics
+
+// PURPOSE OF WILDCARDS:
+// - Solve generic type incompatibility issues (List<Object> ≠ List<String>)
+// - Enable methods to accept broader range of generic types
+// - Maintain compile-time type safety while increasing flexibility
+// - Support covariance and contravariance in generic collections
+// - Bridge gap between generic types and inheritance hierarchies
+
+// KEY PRINCIPLES:
+// - Question mark (?) represents unknown type parameter
+// - Can be used in method parameters, local variables, fields, return types
+// - Cannot be used as type argument when invoking generic methods
+// - Cannot instantiate objects using wildcard types (no new ?())
+// - Wildcards impose restrictions on what operations can be performed
+
+// ============================================================================
+// TYPES OF WILDCARDS
+// ============================================================================
+
+// TYPE 1: UNBOUNDED WILDCARDS
+// - Syntax: List<?> or Collection<?>
+// - Represents any unknown type
+// - Most flexible but most restrictive in operations
+// - Can only read objects as Object type
+// - Cannot add elements (except null)
+// - Use when only reading data or when type doesn't matter
+
+// TYPE 2: UPPER BOUNDED WILDCARDS
+// - Syntax: List<? extends Type>
+// - Represents unknown type that is subtype of specified Type
+// - "extends" applies to both classes (inheritance) and interfaces (implementation)
+// - Enables covariance - can read as Type or its supertypes
+// - Cannot add elements (producer pattern)
+// - Used when consuming/reading data from generic collections
+
+// TYPE 3: LOWER BOUNDED WILDCARDS
+// - Syntax: List<? super Type>
+// - Represents unknown type that is supertype of specified Type
+// - Enables contravariance - can add Type objects safely
+// - Can read elements but only as Object type
+// - Cannot specify both upper and lower bounds simultaneously
+// - Used when producing/writing data to generic collections
+
+// ============================================================================
+// WILDCARD USAGE PATTERNS
+// ============================================================================
+
+// PECS PRINCIPLE (Producer Extends, Consumer Super):
+// - Use <? extends T> when structure produces/provides data (read-only)
+// - Use <? super T> when structure consumes/receives data (write-only)
+// - Use <?> when neither producing nor consuming specific type
+
+// GET-PUT PRINCIPLE:
+// - GET: Use upper bounds (? extends) for retrieving/reading operations
+// - PUT: Use lower bounds (? super) for inserting/writing operations
+// - Wildcards restrict operations to maintain type safety
+
+// ============================================================================
+// STEPS TO IMPLEMENT UPPER BOUNDED WILDCARDS
+// ============================================================================
+
+// STEP 1: IDENTIFY USE CASE
+// - Determine if method needs to read from generic collection
+// - Check if method should work with subtype relationships
+// - Ensure method only needs to extract/consume data
+
+// STEP 2: DEFINE UPPER BOUND SYNTAX
+// - Use <? extends SuperType> in method parameter
+// - SuperType represents highest type in hierarchy to accept
+// - Method can accept collections of SuperType or any subtype
+
+// STEP 3: IMPLEMENT READING OPERATIONS
+// - Can safely read elements as SuperType or higher
+// - Cannot add elements to collection (compile-time error)
+// - Can call methods available on SuperType interface
+
+// STEP 4: HANDLE TYPE SAFETY
+// - Compiler ensures only safe operations are allowed
+// - Reading returns SuperType or Object references
+// - Maintains runtime type safety through compile-time checks
+
+// ============================================================================
+// STEPS TO IMPLEMENT LOWER BOUNDED WILDCARDS
+// ============================================================================
+
+// STEP 1: IDENTIFY USE CASE
+// - Determine if method needs to write to generic collection
+// - Check if method should accept supertypes of specific type
+// - Ensure method primarily adds/produces data
+
+// STEP 2: DEFINE LOWER BOUND SYNTAX
+// - Use <? super SubType> in method parameter
+// - SubType represents lowest type in hierarchy method works with
+// - Method can accept collections of SubType or any supertype
+
+// STEP 3: IMPLEMENT WRITING OPERATIONS
+// - Can safely add SubType objects to collection
+// - Can add subclasses of SubType to collection
+// - Cannot add supertypes of SubType (compile-time error)
+
+// STEP 4: HANDLE READING LIMITATIONS
+// - Reading elements returns Object type only
+// - Must cast if specific type operations needed
+// - Cannot guarantee specific type when reading
+
+// ============================================================================
+// WILDCARD RESTRICTIONS AND LIMITATIONS
+// ============================================================================
+
+// OPERATION RESTRICTIONS:
+// - Upper bounds: Cannot add elements (except null)
+// - Lower bounds: Cannot read as specific type (only Object)
+// - Unbounded: Can only add null, read as Object
+
+// INSTANTIATION LIMITATIONS:
+// - Cannot create instances using wildcard types
+// - Cannot use wildcards in new expressions
+// - Cannot use wildcards in instanceof checks
+
+// MULTIPLE BOUNDS RESTRICTIONS:
+// - Cannot specify both upper and lower bounds together
+// - Cannot use multiple extends clauses with wildcards
+// - Only one bound type allowed per wildcard
+
+// ============================================================================
+// STEPS FOR WILDCARD METHOD DESIGN
+// ============================================================================
+
+// STEP 1: ANALYZE METHOD PURPOSE
+// - Determine if method reads, writes, or both
+// - Identify type relationships method should handle
+// - Consider inheritance hierarchies involved
+
+// STEP 2: CHOOSE APPROPRIATE WILDCARD TYPE
+// - Use <? extends T> for read-heavy methods
+// - Use <? super T> for write-heavy methods
+// - Use <?> for type-agnostic utility methods
+
+// STEP 3: IMPLEMENT TYPE-SAFE OPERATIONS
+// - Restrict operations based on wildcard type chosen
+// - Handle compile-time type checking appropriately
+// - Document method behavior and limitations clearly
+
+// STEP 4: TEST WITH DIFFERENT TYPE HIERARCHIES
+// - Verify method works with intended type relationships
+// - Test boundary conditions with inheritance chains
+// - Ensure runtime behavior matches compile-time promises
+
+// ============================================================================
+// WILDCARD CAPTURE AND TYPE INFERENCE
+// ============================================================================
+
+// WILDCARD CAPTURE:
+// - Compiler captures wildcard type in specific contexts
+// - Creates hidden type variable for wildcard representation
+// - Enables type-safe operations within method scope
+// - Automatic process handled by Java compiler
+
+// TYPE INFERENCE WITH WILDCARDS:
+// - Compiler infers most specific common supertype
+// - Considers wildcard bounds in type calculation
+// - May result in Object type if no common bound exists
+// - Explicit type parameters may be needed in complex cases
+
+// CAPTURE HELPER METHODS:
+// - Private generic methods can capture wildcard types
+// - Enable operations not directly possible with wildcards
+// - Bridge between wildcard flexibility and type safety
+// - Pattern used in Java standard library implementations

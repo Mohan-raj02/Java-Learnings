@@ -1,0 +1,33 @@
+-- To Know the data types of the variable
+               eg: str = "Mohan"               // how to know the data type
+
+               // use .getClass().getName()  or .getClass().getSimpleName()
+
+               str.getClass().getName()        -- java.lang.String
+
+               or
+
+               str.getClass().getSimpleName()        -- String
+
+
+1. To convert the integer to string:
+                eg: int num = 12345;     //integer
+
+                // use String.valueOf()
+
+                String.valueOf(num)           // converted to string -- "12345"
+
+
+2. To convert the string to integer:
+                 eg: String str = "12345";     //string
+
+                 //use Integer.parseInt()
+
+                 Integer.parseInt(str)          // converted to integer -- 12345
+
+ 3. Difference Between Abstract Class & Interface
+ Feature	           Abstract Class	                                           Interface
+ Methods	  --Can have abstract + normal methods	            --Only abstract methods (till Java 7), from Java 8: default & static methods too
+ Variables	  --Instance variables allowed	                    --Only public static final constants
+ Inheritance  --One class can extend only 1 abstract class	    --One class can implement multiple interfaces
+ Constructor  --Can have constructors	                        --No constructors

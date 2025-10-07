@@ -1,0 +1,2 @@
+// for stack(filo, lilo) use array deque
+// for normal queue(fifo) use linkedList

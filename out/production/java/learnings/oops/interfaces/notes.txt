@@ -1,0 +1,12 @@
+//interfaces
+
+// You cannot create an object directly from an interface, but you can create a class that implements the interface and then create an object of that class. You may hold the object in an interface reference and call the methods defined in the interface.
+// Think of an interface like a blueprint or contract 📑.
+// It only tells what should be done, but not how.
+// Any class that “signs” the contract (by implements) must write the code for all methods.
+
+// Interfaces basically contains abstract functions -- abstract functions:(No body of the function is allowed).
+// Variables are static and final by default in interfaces.
+// Interfaces only has abstract class, abstract methods.
+// syntax: uses 'implements' keyword
+// implement multiple inheritance , also means the interface also extends another java interface

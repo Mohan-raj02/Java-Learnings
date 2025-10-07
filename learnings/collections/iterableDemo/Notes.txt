@@ -1,0 +1,61 @@
+// for stack(filo, lilo) use array deque
+// for normal queue(fifo) use linkedList
+
+
+1️⃣ Iterator Interface Declaration:
+
+-- Iterator is also an interface.
+-- Like Queue, you cannot instantiate it directly:
+
+Iterator<Integer> it = new Iterator<>(); // ❌ Not allowed
+
+2️⃣ How do we use Iterator?
+
+Usually, you get an iterator from a collection that implements Iterable:
+
+List<Integer> list = new ArrayList<>();
+list.add(1);
+list.add(2);
+
+Iterator<Integer> it = list.iterator(); // ✅ get an iterator from a List
+while (it.hasNext()) {
+    System.out.println(it.next());
+}
+
+
+Here:
+
+Iterator<Integer> is the interface type.
+
+list.iterator() returns an object of a class that implements Iterator internally.
+
+
+
+
+----------------------------------------------------------------------------------
+1️⃣ Queue Interface Declaration
+
+In Java:
+
+public interface Queue<E> extends Collection<E>
+
+
+This means Queue is just a contract (interface) that defines a set of operations like add(), remove(), peek(), etc.
+
+Interfaces cannot be instantiated directly.
+So you cannot do:
+
+Queue<Integer> q = new Queue<>(); // ❌ Not allowed
+
+2️⃣ How to use a Queue
+
+You must use a class that implements Queue, like:
+
+LinkedList
+
+PriorityQueue
+
+ArrayDeque
+
+
+----------------------------------------------------------------------------------------------------

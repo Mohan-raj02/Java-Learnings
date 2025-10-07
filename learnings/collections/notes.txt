@@ -1,0 +1,69 @@
+// collections Framework:
+
+1. what is the difference between collections framework and data structures and algorithm?
+
+-----------------------------
+**Analogy
+-- DSA = Learning how to build a car engine (fundamentals).
+-- Collections Framework = Buying a car with the engine already installed (ready to use).
+
+-- DSA is the theory + manual implementation of data structures & algorithms.
+-- Collections Framework is Java’s library that gives you prebuilt implementations of many common DSAs.
+
+------------------------------
+    * Data structures and algorithm:
+
+        -- DSA is a Conceptual level → DSA is about how data is organized (data structures) and how we manipulate it efficiently (algorithms).
+
+        -- Examples of Data Structures: Arrays, Linked List, Stack, Queue, Trees, Graphs, Hash Tables, Heaps, etc.
+
+        -- Examples of Algorithms:
+           Sorting (QuickSort, MergeSort, Bubble Sort…)
+           Searching (Binary Search, Linear Search…)
+           Graph Traversals (DFS, BFS)
+           Dynamic Programming, Greedy Algorithms, etc.
+
+    * Collections Framework:
+
+        -- Collection framework is an Implementation level → The Collections Framework is a ready-made library in Java that provides data structures and algorithms so you don’t need to code them from scratch.
+
+        -- It provides interfaces and classes:
+                Interfaces: List, Set, Queue, Map, etc.
+                Classes (implementations): ArrayList, LinkedList, HashSet, TreeSet, PriorityQueue, HashMap, TreeMap, etc.
+
+            Also includes utility algorithms in Collections class:
+                Collections.sort(list)
+                Collections.binarySearch(list, key)
+                Collections.shuffle(list)
+
+---------------------------------------------------
+core interfaces:(collection interface, list interface, queue interface, set interface) --> all are interfaces thet extends parent interfaces.
+
+java.lang.Iterable                ______>  List (extends collection) _____
+|                                 |                                        |_________> ArrayList (extends List)
+|                                 |                                        |_________> Linked List (extends List)
+|                                 |                                        |_________> Vector (extends List)__________> stack
+|                                 |
+collection interface (extends iterable)  ----  ____>  queue (extends collection)______> dequeue (extends queue, can access by extends collections too)
+                                  |
+                                  |
+                                  |                                          _________> sortedSet (extends set)
+                                  |                                         |
+                                  |_______>  set (extends collection)_______
+                                                                            |_________> NavigableSet (extends set)
+
+-----------------------------------------------------
+
+               ___> sorted map (extends map)
+              |
+map -----------
+              |___> navigable map (extends map)
+
+------------------------------------------------------
+
+// Collection Interface
+    -- boolean containsAll(Collection<?>c)
+    -- boolean addAll(Collection<? extends E>c)
+    -- boolean removeAll(Collection<?>c)
+    -- boolean retainAll(Collection<?>c)\
+    -- void clear()

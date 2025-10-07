@@ -1,0 +1,16 @@
+//abstract class
+
+//        Any subclass must implement (override) all abstract methods, unless the subclass is also abstract.
+//        Abstract classes can have constructors, but you cannot instantiate them directly.          Animal a = new Animal(); // ❌ Error
+//        Abstract methods have nothing to do with constructors.
+//        Constructors are for initializing fields, and abstract classes often have fields to initialize.
+//        Abstract classes define a “contract” through abstract methods.
+//        Dynamic dispatch ensures the correct overridden method is called at runtime.
+
+// example syntax: abstract void career (String name);
+// Abstract methods → methods without a body (only declared, no code).
+// any class that contains one or more abstract methods, must also be declared as abstract.
+// you can't create object of an abstract class            Animal a = new Animal(); // ❌ Error
+// abstract Parent(){}: abstract constructor is not allowed
+// abstract static method also not allowed because the word abstract is meant for overridden where the static method cannot be overridden, so abstract static is not allowed.
+// but you can create static method in/inside the abstract class, only abstract static is not allowed which means using abstract keyword along with static.

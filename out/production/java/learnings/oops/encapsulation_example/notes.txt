@@ -1,0 +1,21 @@
+Data hiding:
+-- data hidding is focused data security
+-- in data hiding always put it as private
+-- it is achieved via encapsulation
+
+Encapsulation:
+
+-- Encapsulation is just the thing of rapping the implementation of the data members and the methods inside the class .
+-- hides the codes or data in single entity or unit that can be protected from the outside world.
+-- encapsulation is implemental level
+-- hiding complexity of the system.
+-- focus on internal stuffs
+-- encapsulation is a sub process of data hiding
+-- -- process of containing information
+
+Abstraction:
+
+-- hiding unnecessary details and showing valuable information.
+-- abstraction is design level
+-- focus on external stuffs
+-- process of gaining information
