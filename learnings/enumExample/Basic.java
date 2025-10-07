@@ -31,8 +31,7 @@ public class Basic {
         week.hello();
 
 //        System.out.println(week);
-//        System.out.println(week.ordinal());
-
+//        System.out.println(week.ordinal());   // which index the element locates in
 
 
 //        for (Week day : Week.values()) {

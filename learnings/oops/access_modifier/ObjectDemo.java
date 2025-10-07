@@ -31,10 +31,10 @@ public class ObjectDemo {
         return super.toString();
     }
 
-    @Override            //finalize: get calls when garbage collection hits
-    protected void finalize() throws Throwable {
-        super.finalize();
-    }
+//    @Override            //finalize: get calls when garbage collection hits
+//    protected void finalize() throws Throwable {
+//        super.finalize();
+//    }
 
     public static void main(String[] args) {
         ObjectDemo obj = new ObjectDemo(30, 52.0f);
